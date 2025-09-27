@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="robots" content="index, follow">
+
+	<title>Alkitab Online Bahasa Indonesia - Isi Alkitab Lengkap Bahasa Indonesia, Inggris dan Korea - Jesoes.com</title>
+
+	<!-- Facebook Meta Tags (open graph) -->
+	<meta property="og:url" content="https://www.jesoes.com">
+  	<meta property="og:type" content="website">
+  	<meta property="og:site_name" content="Alkitab Online Kristiani Indonesia">
+  	<meta property="og:title" content="Alkitab Online Bahasa Indonesia - Isi Alkitab Lengkap Bahasa Indonesia, Inggris dan Korea">
+  	<meta property="og:description" content="Website lengkap untuk membaca Alkitab bahasa Indonesia, bahasa Inggris dan bahasa Korea secara parallel dan cepat serta memiliki fasilitas pencarian yang efektif">
+  	<meta property="og:image" content="https://www.jesoes.com/images/icon_handbible_small.png">
+  
+  	<!-- Twitter Meta Tags -->
+  	<meta name="twitter:card" content="summary_large_image">
+  	<meta property="twitter:domain" content="jesoes.com">
+  	<meta property="twitter:url" content="https://www.jesoes.com">
+  	<meta name="twitter:title" content="Alkitab Online Bahasa Indonesia - Isi Alkitab Lengkap Bahasa Indonesia, Inggris dan Korea">
+  	<meta name="twitter:description" content="Website lengkap untuk membaca Alkitab bahasa Indonesia, bahasa Inggris dan bahasa Korea secara parallel dan cepat serta memiliki fasilitas pencarian yang efektif">
+  	<meta name="twitter:image" content="https://www.nomorsuper.com/images/icon_handbible_small.png">
+
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <meta name="description" content="Website lengkap untuk membaca Alkitab bahasa Indonesia, bahasa Inggris dan bahasa Korea secara parallel dan cepat serta memiliki fasilitas pencarian yang efektif">
+    <meta name="keywords" content="alkitab, alkitab online, alkitab elektronik, alkitab indonesia, bahasa indonesia, alkitab bahasa indonesia, terjemahan baru, bahasa Indonesia sehari hari, english amplified, program alkitab, program handphone alkitab, adam hawa, yesus kristus, kristus, hidup lama, hidup baru, lahir baru, jesus, jesus christ, bible, biblika, korea, perpanjian lama, perpanjian baru, old testament, new testament, kitab suci injil, pencarian alkitab, terjemahan alkitab, versi alkitab, ayat alkitab, daftar ayat alkitab, situs alkitab, software alkitab, download alkitab, kristen, katolik, kristiani, nasrani, gereja, kitab lukas, kitab markus, kitab matius, kitab yohanes, kitab kejadian, kitab keluaran, kitab wahyu, musa, anak tuhan, nabi yesus, agama kristiani, agama kristen, search, sehari, seluruh, semua, tenang, terjemahan, tuhan yesus, yudas">
+    
+    <!-- 2024-08-30: avoid inverting color when forcing dark mode -->
+    <meta name="theme-color" content="#000">
+    <meta name="color-scheme" content="dark light">
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">    
+    <!-- <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet"> -->
+
+
+    <link rel='stylesheet' href='css/jesoes_2025-09-27.css'>    
+
+    <script src="js/IndexedDBHelper-v2024-10-04.js"></script>
+    <!-- <script src="js/jesoes_OBF_manager-v2024-10-20.js"></script> -->
+    <script src="js/jesoes_OBF_manager-v2025-09-27d.js"></script>
+    <!-- <script src="js/jesoes_2024-10-04.js"></script> -->
+    <script src="js/jesoes_2025-09-27b.js"></script>
+
+</head>
+<body>
+
+    <header>
+        <a href="" id="left_menu_button" class="btn_menu" onclick="toggleMenu(eleMenuLeft); return false;">         
+
+            <svg width="1.0rem" height="1.0rem" viewBox="0 0 12 12" enable-background="new 0 0 12 12" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g>
+                    <rect fill="#000" height="1" width="15" x="0.5" y="5.5"/>
+                    <rect fill="#000" height="1" width="15" x="0.5" y="2.5"/>
+                    <rect fill="#000" height="1" width="15" x="0.5" y="8.5"/>
+                </g>
+            </svg>
+        </a>
+        
+        <a href="/" style="display: flex; justify-content: center; align-items: center; text-align: center;"><span style="font-weight: bold; font-size: 1.5em; color: black; text-shadow: 3px 4px 5px rgba(0, 0, 0, 0.5);">Jesus Loves You</span></a>
+
+        <a href="" id="right_menu_button" class="btn_menu" onclick="toggleMenu(eleMenuRight); return false;"><span>ⓘ</span></a>
+    </header><!-- header -->
+
+    <div id="left_menu_container" class="side_menu" onclick="onCloseAllMenus();">
+        <div onclick="event.stopPropagation(); /* if click within here do not close menu */">
+
+            <div style="display: flex; justify-content: right; height: var(--navigation-height);"><!-- to the right -->
+                <div style="display: flex; justify-content: center; align-items: center; width: var(--navigation-height); height: var(--navigation-height); cursor: pointer;" onclick="toggleMenu(eleMenuLeft);">
+                    <span style="font-size: 1.5rem">&#x274E;</span>
+                </div>
+            </div>
+
+            <div id="bible_translation_selection_menu_description">
+                <span>Main</span>
+                <span>Bible</span>
+                <span>Extra</span>
+            </div>
+            <!-- show list of Bible translation with checkboxes -->
+            <div id="bible_translation_selection_menu">
+                <div>
+                    <!-- 2024-10-04: in my Android smartphone the UI is broken, if I put <label> then <input>, so go back to original <input> then <label> -->
+                    <input type="radio" class="main_bible" id="bible_code_web" data-code="web" name="radio_main_bible" onchange="onMainBibleChanged();">
+                    <label for="bible_code_web">World English Bible - 2020</label>
+                    <input type="checkbox" class="extra_bible" data-code="web" name="cb_extra_bible" onchange="onExtraBibleChanged();">
+                </div>
+            </div>            
+        </div>
+    </div>
+
+    <div id="right_menu_container" class="side_menu" onclick="onCloseAllMenus();">
+
+        <div onclick="event.stopPropagation(); /* if click within here do not close menu */">
+
+            <div style="display: flex; justify-content: left; height: var(--navigation-height);"><!-- to the right -->
+                <div style="display: flex; justify-content: center; align-items: center; width: var(--navigation-height); height: var(--navigation-height); cursor: pointer;" onclick="toggleMenu(eleMenuRight);">
+                    <span style="font-size: 1.5rem">&#x274E;</span>
+                </div>
+            </div>
+
+            <div id="jesoes-website-information">
+                <p>Jesoes.com provides a convenient way to explore and study the Christian Bible. Here's what makes it unique:</p>
+
+                <ol>                    
+                    <li><strong>Friendly navigation</strong>: Easily follow along with Bible reading, discussion or studies that reference multiple verses.</li>
+                    <li><strong>Automatically save all read verses</strong>: Easy to jump back-and-forth between multiple books and chapters through bookmark.</li>
+                    <li><strong>Read multiple Bible translations simultaneously</strong>: Compare different Bible translations to gain a deeper understanding of scripture.</li>
+                    <li><strong>Designed for small screen</strong>: The web design is suitable for any screen size of smartphones, tablets or desktop.</li>
+                    <li><strong>Cache locally</strong>: All Bible content are downloaded and stored in-device for fast reading.</li>
+                    <li><strong>Open Bible Format (OBF)</strong>: An open data format that is a text in JSON format, it can store the whole Bible, easy to create, read and parse by machine, anyone can create and share Bible translations.</li>
+                </ol>
+
+                <p>How to use Jesoes.com.</p>
+                <ul>
+                    <li>"Choose" tab
+                        <ul>
+                            <li>Choose the book name</li>
+                            <li>Choose the chapter number</li>
+                            <li>Choose the verse number</li>
+                            <li>See the preview of the verse text</li>
+                            <li>Click 'Go' button to see verse</li>
+                        </ul>
+                    </li>
+                    <li>"Read" tab
+                        <ul>
+                            <li>Scroll through to read verses.</li>
+                            <li>To compare Bible translations click the verse to open the other Bible translations (eg: English, Indonesian, Korean, etc.).</li>
+                            </li>
+                            <li>Select the other Bible translations from the left menu.</li>
+                        </ul>
+                    </li>
+                    <li>"Previous" tab
+                        <ul>
+                            <li>All read verses will be automatically stored and displayed here.</li>
+                            <li>See when (date and time) and what verses that you previously read.</li>
+                            <li>Click the item to read it again.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <p>Additional Notes:</p>
+                <ul>
+                    <li>Jesoes.com does not collect any data at all.</li>
+                    <li>This website operation is fast because the OBF data is cached and stored in this device only.</li>
+                    <!--li>Someone may ask why the domain name is 'Jesoes.com'? it is because jesus.com has been taken, so I use the next best thing jesoes.com because 'oe' is pronounced as 'u' in old Indonesian text.</li-->
+                    <li>Please consider to contribute to create new Bible translations through the OBF format.
+                        <br>Contact me: hlim (&#64;) quick (.) work
+                    </li>
+                </ul>
+
+                <hr>
+                <p>This website data is last updated on 2025-09-27.
+                    <br><br>Created by: <a href="https://quick.work" target="_blank">Quick Work</a></p>
+
+                <div id="device-screen-info" style="text-align: center; margin: 1.0rem 0; border-top: 1px solid #666;"></div>
+            </div>            
+        </div>
+    </div>
+
+    <!-- main content (Single Page Application)-->
+    <main>
+        <div id="my_radio_button_container">
+            <input type="radio" name="read_tab_input_radio_group" class="tab_radio" id="tab_radio_1" data-content-id="tab-content-choose" checked><!-- default checked -->
+            <input type="radio" name="read_tab_input_radio_group" class="tab_radio" id="tab_radio_2" data-content-id="tab-content-read">
+            <input type="radio" name="read_tab_input_radio_group" class="tab_radio" id="tab_radio_3" data-content-id="tab-content-previous">
+            
+            <div id="my_radio_button_labels">
+                <label for="tab_radio_1" class="tab-button" id="label-tab-choose">Choose</label>
+                <label for="tab_radio_2" class="tab-button" id="label-tab-read">Read</label>
+                <label for="tab_radio_3" class="tab-button" id="label-tab-previous">Previous</label>  
+            </div>
+            
+            <div id="tab_content_container">
+                <div class="tab-content" id="tab-content-choose">
+                    <div id="content-choose-list-header">
+                        <!-- header label, value will be changed later depend on main Bible translation's locale -->
+                        <div id="header-label-book">Book</div>
+                        <div id="header-label-chapter">Chapter</div>
+                        <div id="header-label-verse">Verse</div>
+                    </div>
+    
+                    <div id="content-choose-list">
+    
+                        <!-- v2 == like Android app, leave a little bit of dummy structure below for reference, use JS to update -->
+                        <div id="choose-booknames-list-container">
+                            <ul id="choose-booknames-list">
+                                <li>Genesis</li>
+                                <li>Exodus</li>
+                                <li>Leviticus</li>
+                                <li>Numbers</li>
+                            </ul>
+                        </div>
+                        <div id="choose-chapter-number-list-container">
+                            <ul id="choose-chapter-number-list">
+                                <li>1</li>
+                                <li>2</li>
+                                <li>3</li>
+                            </ul>
+                        </div>
+                        <div id="choose-verse-number-list-container">
+                            <ul id="choose-verse-number-list">
+                                <li>1</li>
+                                <li>2</li>
+                                <li>3</li>
+                                <li>4</li>
+                                <li>5</li>
+                                <li>6</li>
+                                <li>7</li>
+                                <li>8</li>
+                                <li>9</li>
+                                <li>10</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="content-choose-verse-text-container">
+                        <div id="content-choose-verse-text"><em>Exodus 2:1</em> {Israel Multiplies in Egypt}Now these are the names of the sons of Israel who came to Egypt with Jacob; each came with his household:</div>
+                        <button id="content-choose-go">Go</button>
+                    </div>
+                </div>
+                <div class="tab-content" id="tab-content-read">
+                    <div id="content-read-book-chapter-verse">
+                        [no Bible content, please use the left menu to download Bible]
+                    </div>     
+                </div>
+                <div class="tab-content" id="tab-content-previous">
+                    <div id="content-read-history-list">
+                        [no previous saved read history, in 'Choose' tab choose a verse and click 'GO' button].
+                    </div>
+                </div>
+                <!-- <div class="tab-content" id="content-search-result">
+                    <div id="content-of-list-of-search-result">
+                        No search result.
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </main>
+
+    <!-- how to have footer without dynamic tab-content-container's height ?
+        ORIGINAL: no footer because using tabs system 
+        use fixed height, so it is easy to calculate.
+        Due to content container is calc(100vh - (2 * var(--navigation-height))); so this footer is NOT visible
+        but will be visible if user scrolled to the bottom.
+        in part it is bad but another part is good (no need to show footer)
+
+        2024-09-18: remove footer
+        2024-09-19: redisplay footer, use nosup style
+        -->
+    <footer style="height: var(--navigation-height); color: black; background-color: white; display: flex; justify-content: center; align-items: center;">
+        <div style="text-align: center;">
+            Jesoes.com - Since 2007
+        </div>
+    </footer>
+    <!-- spacer -->
+    <!-- <div style="height: var(--navigation-height);"></div> -->
+
+    <!-- <div id="gdpr-popup" class="gdpr-popup">
+        <div class="gdpr-popup-content">
+            <p>We use cookies to improve your experience on our site. By continuing to use our website, you agree to our use of cookies.</p>
+            <button id="gdpr-accept" class="gdpr-btn">Accept</button>
+            <button id="gdpr-decline" class="gdpr-btn">Decline</button>
+        </div>
+    </div> -->
+
+    <div id="popup-welcome-and-agreement">
+        <div id="welcome-and-agreement-content">
+            <h3>Welcome to Jesoes.com</h3>
+
+            <p>This web app will download Bible contents and stored them locally in this device for faster loading next time.</p>
+            <p>Please see the Left menu to select the main Bible also the extra Bible translation for quick comparison.</p>
+
+            <button id="info-understand" class="agreement-btn">Agree</button>
+            <button id="info-show-again" class="agreement-btn">Next time</button>
+        </div>
+    </div>
+
+    <script>
+        // Bible Structure will be embedded inside index.html for quick load
+        // update when necessary.
+        const bible_structure = {"author":"jesoes.com","created":"2024-08-14 21:07:08","books":[{"bookId":"1","nameFullIndonesia":"Kejadian","nameShortIndonesia":"kej","nameFullEnglish":"Genesis","nameShortEnglish":"gen","nameFullKorean":"창세기","nameShortKorean":"창","totalChapter":50,"totalVerse":1533,"totalVerseEachChapter":[31,25,24,26,32,22,24,22,29,32,32,20,18,24,21,16,27,33,38,18,34,24,20,67,34,35,46,22,35,43,55,32,20,31,29,43,36,30,23,23,57,38,34,34,28,34,31,22,33,26]},{"bookId":"2","nameFullIndonesia":"Keluaran","nameShortIndonesia":"kel","nameFullEnglish":"Exodus","nameShortEnglish":"ex","nameFullKorean":"출애굽기","nameShortKorean":"출","totalChapter":40,"totalVerse":1213,"totalVerseEachChapter":[22,25,22,31,23,30,25,32,35,29,10,51,22,31,27,36,16,27,25,26,36,31,33,18,40,37,21,43,46,38,18,35,23,35,35,38,29,31,43,38]},{"bookId":"3","nameFullIndonesia":"Imamat","nameShortIndonesia":"im","nameFullEnglish":"Leviticus","nameShortEnglish":"lev","nameFullKorean":"레위기","nameShortKorean":"레","totalChapter":27,"totalVerse":859,"totalVerseEachChapter":[17,16,17,35,19,30,38,36,24,20,47,8,59,57,33,34,16,30,37,27,24,33,44,23,55,46,34]},{"bookId":"4","nameFullIndonesia":"Bilangan","nameShortIndonesia":"bil","nameFullEnglish":"Numbers","nameShortEnglish":"num","nameFullKorean":"민수기","nameShortKorean":"민","totalChapter":36,"totalVerse":1288,"totalVerseEachChapter":[54,34,51,49,31,27,89,26,23,36,35,16,33,45,41,50,13,32,22,29,35,41,30,25,18,65,23,31,40,16,54,42,56,29,34,13]},{"bookId":"5","nameFullIndonesia":"Ulangan","nameShortIndonesia":"ul","nameFullEnglish":"Deuteronomy","nameShortEnglish":"deu","nameFullKorean":"신명기","nameShortKorean":"신","totalChapter":34,"totalVerse":959,"totalVerseEachChapter":[46,37,29,49,33,25,26,20,29,22,32,32,18,29,23,22,20,22,21,20,23,30,25,22,19,19,26,68,29,20,30,52,29,12]},{"bookId":"6","nameFullIndonesia":"Yosua","nameShortIndonesia":"yos","nameFullEnglish":"Joshua","nameShortEnglish":"jos","nameFullKorean":"여호수아","nameShortKorean":"수","totalChapter":24,"totalVerse":658,"totalVerseEachChapter":[18,24,17,24,15,27,26,35,27,43,23,24,33,15,63,10,18,28,51,9,45,34,16,33]},{"bookId":"7","nameFullIndonesia":"Hakim Hakim","nameShortIndonesia":"hak","nameFullEnglish":"Judges","nameShortEnglish":"judg","nameFullKorean":"사사기","nameShortKorean":"삿","totalChapter":21,"totalVerse":618,"totalVerseEachChapter":[36,23,31,24,31,40,25,35,57,18,40,15,25,20,20,31,13,31,30,48,25]},{"bookId":"8","nameFullIndonesia":"Rut","nameShortIndonesia":"rut","nameFullEnglish":"Ruth","nameShortEnglish":"rut","nameFullKorean":"룻기","nameShortKorean":"룻","totalChapter":4,"totalVerse":85,"totalVerseEachChapter":[22,23,18,22]},{"bookId":"9","nameFullIndonesia":"1 Samuel","nameShortIndonesia":"1sam","nameFullEnglish":"1 Samuel","nameShortEnglish":"1sam","nameFullKorean":"사무엘상","nameShortKorean":"삼상","totalChapter":31,"totalVerse":810,"totalVerseEachChapter":[28,36,21,22,12,21,17,22,27,27,15,25,23,52,35,23,58,30,24,42,15,23,29,22,44,25,12,25,11,31,13]},{"bookId":"10","nameFullIndonesia":"2 Samuel","nameShortIndonesia":"2sam","nameFullEnglish":"2 Samuel","nameShortEnglish":"2sam","nameFullKorean":"사무엘하","nameShortKorean":"삼하","totalChapter":24,"totalVerse":695,"totalVerseEachChapter":[27,32,39,12,25,23,29,18,13,19,27,31,39,33,37,23,29,33,43,26,22,51,39,25]},{"bookId":"11","nameFullIndonesia":"1 Raja Raja","nameShortIndonesia":"1raj","nameFullEnglish":"1 Kings","nameShortEnglish":"1ki","nameFullKorean":"열왕기상","nameShortKorean":"왕상","totalChapter":22,"totalVerse":816,"totalVerseEachChapter":[53,46,28,34,18,38,51,66,28,29,43,33,34,31,34,34,24,46,21,43,29,53]},{"bookId":"12","nameFullIndonesia":"2 Raja Raja","nameShortIndonesia":"2raj","nameFullEnglish":"2 Kings","nameShortEnglish":"2ki","nameFullKorean":"열왕기하","nameShortKorean":"왕하","totalChapter":25,"totalVerse":719,"totalVerseEachChapter":[18,25,27,44,27,33,20,29,37,36,21,21,25,29,38,20,41,37,37,21,26,20,37,20,30]},{"bookId":"13","nameFullIndonesia":"1 Tawarikh","nameShortIndonesia":"1taw","nameFullEnglish":"1 Chronicles","nameShortEnglish":"1chr","nameFullKorean":"역대상","nameShortKorean":"대상","totalChapter":29,"totalVerse":942,"totalVerseEachChapter":[54,55,24,43,26,81,40,40,44,14,47,40,14,17,29,43,27,17,19,8,30,19,32,31,31,32,34,21,30]},{"bookId":"14","nameFullIndonesia":"2 Tawarikh","nameShortIndonesia":"2taw","nameFullEnglish":"2 Chronicles","nameShortEnglish":"2chr","nameFullKorean":"역대하","nameShortKorean":"대하","totalChapter":36,"totalVerse":822,"totalVerseEachChapter":[17,18,17,22,14,42,22,18,31,19,23,16,22,15,19,14,19,34,11,37,20,12,21,27,28,23,9,27,36,27,21,33,25,33,27,23]},{"bookId":"15","nameFullIndonesia":"Ezra","nameShortIndonesia":"ezr","nameFullEnglish":"Ezra","nameShortEnglish":"ezr","nameFullKorean":"에스라","nameShortKorean":"스","totalChapter":10,"totalVerse":280,"totalVerseEachChapter":[11,70,13,24,17,22,28,36,15,44]},{"bookId":"16","nameFullIndonesia":"Nehemia","nameShortIndonesia":"neh","nameFullEnglish":"Nehemiah","nameShortEnglish":"neh","nameFullKorean":"느헤미야","nameShortKorean":"느","totalChapter":13,"totalVerse":406,"totalVerseEachChapter":[11,20,32,23,19,19,73,18,38,39,36,47,31]},{"bookId":"17","nameFullIndonesia":"Ester","nameShortIndonesia":"est","nameFullEnglish":"Esther","nameShortEnglish":"est","nameFullKorean":"에스더","nameShortKorean":"에","totalChapter":10,"totalVerse":167,"totalVerseEachChapter":[22,23,15,17,14,14,10,17,32,3]},{"bookId":"18","nameFullIndonesia":"Ayub","nameShortIndonesia":"ayb","nameFullEnglish":"Job","nameShortEnglish":"job","nameFullKorean":"욥기","nameShortKorean":"욥","totalChapter":42,"totalVerse":1070,"totalVerseEachChapter":[22,13,26,21,27,30,21,22,35,22,20,25,28,22,35,22,16,21,29,29,34,30,17,25,6,14,23,28,25,31,40,22,33,37,16,33,24,41,30,24,34,17]},{"bookId":"19","nameFullIndonesia":"Mazmur","nameShortIndonesia":"mzm","nameFullEnglish":"Psalm","nameShortEnglish":"ps","nameFullKorean":"시편","nameShortKorean":"시","totalChapter":150,"totalVerse":2461,"totalVerseEachChapter":[6,12,8,8,12,10,17,9,20,18,7,8,6,7,5,11,15,50,14,9,13,31,6,10,22,12,14,9,11,12,24,11,22,22,28,12,40,22,13,17,13,11,5,26,17,11,9,14,20,23,19,9,6,7,23,13,11,11,17,12,8,12,11,10,13,20,7,35,36,5,24,20,28,23,10,12,20,72,13,19,16,8,18,12,13,17,7,18,52,17,16,15,5,23,11,13,12,9,9,5,8,28,22,35,45,48,43,13,31,7,10,10,9,8,18,19,2,29,176,7,8,9,4,8,5,6,5,6,8,8,3,18,3,3,21,26,9,8,24,13,10,7,12,15,21,10,20,14,9,6]},{"bookId":"20","nameFullIndonesia":"Amsal","nameShortIndonesia":"ams","nameFullEnglish":"Proverbs","nameShortEnglish":"prov","nameFullKorean":"잠언","nameShortKorean":"잠","totalChapter":31,"totalVerse":915,"totalVerseEachChapter":[33,22,35,27,23,35,27,36,18,32,31,28,25,35,33,33,28,24,29,30,31,29,35,34,28,28,27,28,27,33,31]},{"bookId":"21","nameFullIndonesia":"Pengkhotbah","nameShortIndonesia":"pkh","nameFullEnglish":"Ecclesiastes","nameShortEnglish":"eccl","nameFullKorean":"전도서","nameShortKorean":"전","totalChapter":12,"totalVerse":222,"totalVerseEachChapter":[18,26,22,16,20,12,29,17,18,20,10,14]},{"bookId":"22","nameFullIndonesia":"Kidung Agung","nameShortIndonesia":"kid","nameFullEnglish":"Song of Solomon","nameShortEnglish":"song","nameFullKorean":"아가","nameShortKorean":"아","totalChapter":8,"totalVerse":117,"totalVerseEachChapter":[17,17,11,16,16,13,13,14]},{"bookId":"23","nameFullIndonesia":"Yesaya","nameShortIndonesia":"yes","nameFullEnglish":"Isaiah","nameShortEnglish":"isa","nameFullKorean":"이사야","nameShortKorean":"사","totalChapter":66,"totalVerse":1292,"totalVerseEachChapter":[31,22,26,6,30,13,25,22,21,34,16,6,22,32,9,14,14,7,25,6,17,25,18,23,12,21,13,29,24,33,9,20,24,17,10,22,38,22,8,31,29,25,28,28,25,13,15,22,26,11,23,15,12,17,13,12,21,14,21,22,11,12,19,12,25,24]},{"bookId":"24","nameFullIndonesia":"Yeremia","nameShortIndonesia":"yer","nameFullEnglish":"Jeremiah","nameShortEnglish":"jer","nameFullKorean":"예레미야","nameShortKorean":"렘","totalChapter":52,"totalVerse":1364,"totalVerseEachChapter":[19,37,25,31,31,30,34,22,26,25,23,17,27,22,21,21,27,23,15,18,14,30,40,10,38,24,22,17,32,24,40,44,26,22,19,32,21,28,18,16,18,22,13,30,5,28,7,47,39,46,64,34]},{"bookId":"25","nameFullIndonesia":"Ratapan","nameShortIndonesia":"rat","nameFullEnglish":"Lamentations","nameShortEnglish":"lam","nameFullKorean":"예레미야애가","nameShortKorean":"애","totalChapter":5,"totalVerse":154,"totalVerseEachChapter":[22,22,66,22,22]},{"bookId":"26","nameFullIndonesia":"Yehezkiel","nameShortIndonesia":"yeh","nameFullEnglish":"Ezekiel","nameShortEnglish":"eze","nameFullKorean":"에스겔","nameShortKorean":"겔","totalChapter":48,"totalVerse":1273,"totalVerseEachChapter":[28,10,27,17,17,14,27,18,11,22,25,28,23,23,8,63,24,32,14,49,32,31,49,27,17,21,36,26,21,26,18,32,33,31,15,38,28,23,29,49,26,20,27,31,25,24,23,35]},{"bookId":"27","nameFullIndonesia":"Daniel","nameShortIndonesia":"dan","nameFullEnglish":"Daniel","nameShortEnglish":"dan","nameFullKorean":"다니엘","nameShortKorean":"단","totalChapter":12,"totalVerse":357,"totalVerseEachChapter":[21,49,30,37,31,28,28,27,27,21,45,13]},{"bookId":"28","nameFullIndonesia":"Hosea","nameShortIndonesia":"hos","nameFullEnglish":"Hosea","nameShortEnglish":"hos","nameFullKorean":"호세아","nameShortKorean":"호","totalChapter":14,"totalVerse":197,"totalVerseEachChapter":[11,23,5,19,15,11,16,14,17,15,12,14,16,9]},{"bookId":"29","nameFullIndonesia":"Yoel","nameShortIndonesia":"yl","nameFullEnglish":"Joel","nameShortEnglish":"joe","nameFullKorean":"요엘","nameShortKorean":"욜","totalChapter":3,"totalVerse":73,"totalVerseEachChapter":[20,32,21]},{"bookId":"30","nameFullIndonesia":"Amos","nameShortIndonesia":"am","nameFullEnglish":"Amos","nameShortEnglish":"amo","nameFullKorean":"아모스","nameShortKorean":"암","totalChapter":9,"totalVerse":146,"totalVerseEachChapter":[15,16,15,13,27,14,17,14,15]},{"bookId":"31","nameFullIndonesia":"Obaja","nameShortIndonesia":"ob","nameFullEnglish":"Obadiah","nameShortEnglish":"oba","nameFullKorean":"오바댜","nameShortKorean":"옵","totalChapter":1,"totalVerse":21,"totalVerseEachChapter":[21]},{"bookId":"32","nameFullIndonesia":"Yunus","nameShortIndonesia":"yun","nameFullEnglish":"Jonah","nameShortEnglish":"jon","nameFullKorean":"요나","nameShortKorean":"욘","totalChapter":4,"totalVerse":48,"totalVerseEachChapter":[17,10,10,11]},{"bookId":"33","nameFullIndonesia":"Mikha","nameShortIndonesia":"mi","nameFullEnglish":"Micah","nameShortEnglish":"mic","nameFullKorean":"미가","nameShortKorean":"미","totalChapter":7,"totalVerse":105,"totalVerseEachChapter":[16,13,12,13,15,16,20]},{"bookId":"34","nameFullIndonesia":"Nahum","nameShortIndonesia":"nah","nameFullEnglish":"Nahum","nameShortEnglish":"nah","nameFullKorean":"나훔","nameShortKorean":"나","totalChapter":3,"totalVerse":47,"totalVerseEachChapter":[15,13,19]},{"bookId":"35","nameFullIndonesia":"Habakuk","nameShortIndonesia":"hab","nameFullEnglish":"Habakkuk","nameShortEnglish":"hab","nameFullKorean":"하박국","nameShortKorean":"합","totalChapter":3,"totalVerse":56,"totalVerseEachChapter":[17,20,19]},{"bookId":"36","nameFullIndonesia":"Zafanya","nameShortIndonesia":"zef","nameFullEnglish":"Zephaniah","nameShortEnglish":"zep","nameFullKorean":"스바냐","nameShortKorean":"습","totalChapter":3,"totalVerse":53,"totalVerseEachChapter":[18,15,20]},{"bookId":"37","nameFullIndonesia":"Hagai","nameShortIndonesia":"hag","nameFullEnglish":"Haggai","nameShortEnglish":"hag","nameFullKorean":"학개","nameShortKorean":"학","totalChapter":2,"totalVerse":38,"totalVerseEachChapter":[15,23]},{"bookId":"38","nameFullIndonesia":"Zakharia","nameShortIndonesia":"za","nameFullEnglish":"Zechariah","nameShortEnglish":"zec","nameFullKorean":"스가랴","nameShortKorean":"슥","totalChapter":14,"totalVerse":211,"totalVerseEachChapter":[21,13,10,14,11,15,14,23,17,12,17,14,9,21]},{"bookId":"39","nameFullIndonesia":"Maleakhi","nameShortIndonesia":"mal","nameFullEnglish":"Malachi","nameShortEnglish":"mal","nameFullKorean":"말라기","nameShortKorean":"말","totalChapter":4,"totalVerse":55,"totalVerseEachChapter":[14,17,18,6]},{"bookId":"40","nameFullIndonesia":"Matius","nameShortIndonesia":"mat","nameFullEnglish":"Matthew","nameShortEnglish":"mat","nameFullKorean":"마태복음","nameShortKorean":"마","totalChapter":28,"totalVerse":1071,"totalVerseEachChapter":[25,23,17,25,48,34,29,34,38,42,30,50,58,36,39,28,27,35,30,34,46,46,39,51,46,75,66,20]},{"bookId":"41","nameFullIndonesia":"Markus","nameShortIndonesia":"mrk","nameFullEnglish":"Mark","nameShortEnglish":"mar","nameFullKorean":"마가복음","nameShortKorean":"막","totalChapter":16,"totalVerse":678,"totalVerseEachChapter":[45,28,35,41,43,56,37,38,50,52,33,44,37,72,47,20]},{"bookId":"42","nameFullIndonesia":"Lukas","nameShortIndonesia":"luk","nameFullEnglish":"Luke","nameShortEnglish":"luk","nameFullKorean":"누가복음","nameShortKorean":"눅","totalChapter":24,"totalVerse":1151,"totalVerseEachChapter":[80,52,38,44,39,49,50,56,62,42,54,59,35,35,32,31,37,43,48,47,38,71,56,53]},{"bookId":"43","nameFullIndonesia":"Yohanes","nameShortIndonesia":"yoh","nameFullEnglish":"John","nameShortEnglish":"joh","nameFullKorean":"요한복음","nameShortKorean":"요","totalChapter":21,"totalVerse":879,"totalVerseEachChapter":[51,25,36,54,47,71,53,59,41,42,57,50,38,31,27,33,26,40,42,31,25]},{"bookId":"44","nameFullIndonesia":"Kisah Para Rasul","nameShortIndonesia":"kis","nameFullEnglish":"Acts","nameShortEnglish":"act","nameFullKorean":"사도행전","nameShortKorean":"행","totalChapter":28,"totalVerse":1007,"totalVerseEachChapter":[26,47,26,37,42,15,60,40,43,48,30,25,52,28,41,40,34,28,41,38,40,30,35,27,27,32,44,31]},{"bookId":"45","nameFullIndonesia":"Roma","nameShortIndonesia":"rm","nameFullEnglish":"Romans","nameShortEnglish":"rom","nameFullKorean":"로마서","nameShortKorean":"롬","totalChapter":16,"totalVerse":433,"totalVerseEachChapter":[32,29,31,25,21,23,25,39,33,21,36,21,14,23,33,27]},{"bookId":"46","nameFullIndonesia":"1 Korintus","nameShortIndonesia":"1kor","nameFullEnglish":"1 Corinthians","nameShortEnglish":"1cor","nameFullKorean":"고린도전서","nameShortKorean":"고전","totalChapter":16,"totalVerse":437,"totalVerseEachChapter":[31,16,23,21,13,20,40,13,27,33,34,31,13,40,58,24]},{"bookId":"47","nameFullIndonesia":"2 Korintus","nameShortIndonesia":"2kor","nameFullEnglish":"2 Corinthians","nameShortEnglish":"2cor","nameFullKorean":"고린도후서","nameShortKorean":"고후","totalChapter":13,"totalVerse":257,"totalVerseEachChapter":[24,17,18,18,21,18,16,24,15,18,33,21,14]},{"bookId":"48","nameFullIndonesia":"Galatia","nameShortIndonesia":"gal","nameFullEnglish":"Galatians","nameShortEnglish":"gal","nameFullKorean":"갈라디아서","nameShortKorean":"갈","totalChapter":6,"totalVerse":149,"totalVerseEachChapter":[24,21,29,31,26,18]},{"bookId":"49","nameFullIndonesia":"Efesus","nameShortIndonesia":"ef","nameFullEnglish":"Ephesians","nameShortEnglish":"eph","nameFullKorean":"에베소서","nameShortKorean":"엡","totalChapter":6,"totalVerse":155,"totalVerseEachChapter":[23,22,21,32,33,24]},{"bookId":"50","nameFullIndonesia":"Filipi","nameShortIndonesia":"flp","nameFullEnglish":"Philippians","nameShortEnglish":"phili","nameFullKorean":"빌립보서","nameShortKorean":"빌","totalChapter":4,"totalVerse":104,"totalVerseEachChapter":[30,30,21,23]},{"bookId":"51","nameFullIndonesia":"Kolose","nameShortIndonesia":"kol","nameFullEnglish":"Colossians","nameShortEnglish":"col","nameFullKorean":"골로새서","nameShortKorean":"골","totalChapter":4,"totalVerse":95,"totalVerseEachChapter":[29,23,25,18]},{"bookId":"52","nameFullIndonesia":"1 Tesalonika","nameShortIndonesia":"1tes","nameFullEnglish":"1 Thessalonians","nameShortEnglish":"1the","nameFullKorean":"데살로니가전서","nameShortKorean":"살전","totalChapter":5,"totalVerse":89,"totalVerseEachChapter":[10,20,13,18,28]},{"bookId":"53","nameFullIndonesia":"2 Tesalonika","nameShortIndonesia":"2tes","nameFullEnglish":"2 Thessalonians","nameShortEnglish":"2the","nameFullKorean":"데살로니가후서","nameShortKorean":"살후","totalChapter":3,"totalVerse":47,"totalVerseEachChapter":[12,17,18]},{"bookId":"54","nameFullIndonesia":"1 Timotius","nameShortIndonesia":"1tim","nameFullEnglish":"1 Timothy","nameShortEnglish":"1tim","nameFullKorean":"디모데전서","nameShortKorean":"딤전","totalChapter":6,"totalVerse":113,"totalVerseEachChapter":[20,15,16,16,25,21]},{"bookId":"55","nameFullIndonesia":"2 Timotius","nameShortIndonesia":"2tim","nameFullEnglish":"2 Timothy","nameShortEnglish":"2tim","nameFullKorean":"디모데후서","nameShortKorean":"딤후","totalChapter":4,"totalVerse":83,"totalVerseEachChapter":[18,26,17,22]},{"bookId":"56","nameFullIndonesia":"Titus","nameShortIndonesia":"tit","nameFullEnglish":"Titus","nameShortEnglish":"tit","nameFullKorean":"디도서","nameShortKorean":"딛","totalChapter":3,"totalVerse":46,"totalVerseEachChapter":[16,15,15]},{"bookId":"57","nameFullIndonesia":"Filemon","nameShortIndonesia":"flm","nameFullEnglish":"Philemon","nameShortEnglish":"phile","nameFullKorean":"빌레몬서","nameShortKorean":"몬","totalChapter":1,"totalVerse":25,"totalVerseEachChapter":[25]},{"bookId":"58","nameFullIndonesia":"Ibrani","nameShortIndonesia":"ibr","nameFullEnglish":"Hebrews","nameShortEnglish":"heb","nameFullKorean":"히브리서","nameShortKorean":"히","totalChapter":13,"totalVerse":303,"totalVerseEachChapter":[14,18,19,16,14,20,28,13,28,39,40,29,25]},{"bookId":"59","nameFullIndonesia":"Yakobus","nameShortIndonesia":"yak","nameFullEnglish":"James","nameShortEnglish":"jam","nameFullKorean":"야고보서","nameShortKorean":"약","totalChapter":5,"totalVerse":108,"totalVerseEachChapter":[27,26,18,17,20]},{"bookId":"60","nameFullIndonesia":"1 Petrus","nameShortIndonesia":"1ptr","nameFullEnglish":"1 Peter","nameShortEnglish":"1pet","nameFullKorean":"베드로전서","nameShortKorean":"벧전","totalChapter":5,"totalVerse":105,"totalVerseEachChapter":[25,25,22,19,14]},{"bookId":"61","nameFullIndonesia":"2 Petrus","nameShortIndonesia":"2ptr","nameFullEnglish":"2 Peter","nameShortEnglish":"2pet","nameFullKorean":"베드로후서","nameShortKorean":"벧후","totalChapter":3,"totalVerse":61,"totalVerseEachChapter":[21,22,18]},{"bookId":"62","nameFullIndonesia":"1 Yohanes","nameShortIndonesia":"1yoh","nameFullEnglish":"1 John","nameShortEnglish":"1joh","nameFullKorean":"요한일서","nameShortKorean":"요일","totalChapter":5,"totalVerse":105,"totalVerseEachChapter":[10,29,24,21,21]},{"bookId":"63","nameFullIndonesia":"2 Yohanes","nameShortIndonesia":"2yoh","nameFullEnglish":"2 John","nameShortEnglish":"2joh","nameFullKorean":"요한이서","nameShortKorean":"요이","totalChapter":1,"totalVerse":13,"totalVerseEachChapter":[13]},{"bookId":"64","nameFullIndonesia":"3 Yohanes","nameShortIndonesia":"3yoh","nameFullEnglish":"3 John","nameShortEnglish":"3joh","nameFullKorean":"요한삼서","nameShortKorean":"요삼","totalChapter":1,"totalVerse":15,"totalVerseEachChapter":[15]},{"bookId":"65","nameFullIndonesia":"Yudas","nameShortIndonesia":"yud","nameFullEnglish":"Jude","nameShortEnglish":"jude","nameFullKorean":"유다서","nameShortKorean":"유","totalChapter":1,"totalVerse":25,"totalVerseEachChapter":[25]},{"bookId":"66","nameFullIndonesia":"Wahyu","nameShortIndonesia":"why","nameFullEnglish":"Revelation","nameShortEnglish":"rev","nameFullKorean":"요한계시록","nameShortKorean":"계","totalChapter":22,"totalVerse":404,"totalVerseEachChapter":[20,29,22,11,14,17,17,13,21,11,19,17,18,20,8,21,18,24,21,15,27,21]}]};
+
+    </script>
+</body>
+</html>

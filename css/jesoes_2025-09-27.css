@@ -1,0 +1,738 @@
+html {
+    box-sizing: border-box;
+}
+*,
+:after,
+:before {
+    box-sizing: inherit;
+}
+:root {
+    /* default small screen */
+    --font-size: 16px;
+    --navigation-height: 50px; /* can not use calc(2 * line-height * var(--font-size)); */
+}
+@media screen and (min-width : 420px) {
+    /* large screen */
+    :root {            
+        --font-size: 20px;
+        --navigation-height: 60px; /*calc(2 * var(var(--font-size)));*/
+    }
+    body {
+        letter-spacing: 2px;
+        word-spacing: 2px;
+    }
+}
+body {
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    background-color: #000;
+
+    /* 2024-09-23 - because jesoes.com is text based, therefore in small or large screen the text side is better propotional */
+    font-size: var(--font-size); /* 3dvw (Dynamic Viewport Width) ==> 100/3=33 characters width, original=1.0rem;*/
+    
+    letter-spacing: 1px;
+    word-spacing: 1px;
+
+    /*line-height: 1.2; /* enfore default at 1.2 (120%) of current font-size and font-family */
+    line-height: 1.3;
+    
+    overflow-wrap: break-word;
+
+    font-family: Merriweather, Serif, Arial; /* Arial is good because the capital J looks like 7 */
+}
+body.hide {
+    overflow: hidden; /* prevent scroll when menu is open */
+}
+a {
+    color: red;
+    font-style: normal;
+    text-decoration: none;        
+}
+a:hover {
+    color: #0f0;
+}
+
+button {
+    /* padding: 10px 20px;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    color: #333; */
+    cursor: pointer;
+    font-weight: bold;
+    border:none;
+    border-radius:10px;
+}
+
+header {
+    /* not sticky, let it flow naturally
+    position: fixed;
+    top: 0; 
+    */
+
+    width: 100%;
+    height: var(--navigation-height);
+
+    display: grid;
+    grid-template-columns: var(--navigation-height) 1fr var(--navigation-height);
+    
+    background-color: #fff;
+    color: black;
+    /* border-bottom: 1px solid #333; */
+}
+footer {
+    width: 100%;
+    height: var(--navigation-height);
+
+    background-color: #ccc;
+    color: black;
+}
+
+/*************************************************************
+*** styles for menu (left and right) *************************
+**************************************************************/
+#bible_translation_selection_menu_description {
+    display: grid;
+    grid-template-columns: var(--navigation-height) auto var(--navigation-height);
+    gap: 0.5rem;
+
+    height: var(--navigation-height);
+
+    color: white;
+    background-color: blue;
+}
+#bible_translation_selection_menu_description > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    padding: 1.0rem 0;
+}
+#bible_translation_selection_menu { 
+    /* allow vertical scroll */
+    max-height: 100dvh;
+    overflow-y: auto;
+    /* extra space to allow scroll to the bottom of the content */
+    padding-bottom: calc(2 * var(--navigation-height)); /* close button height and lable */
+}
+#bible_translation_selection_menu > div {
+    display: grid;
+    grid-template-columns: var(--navigation-height) auto var(--navigation-height);
+    gap: 0.5rem;
+
+    height: var(--navigation-height);
+    
+    border-bottom: 1px solid #666;
+}
+/* #bible_translation_selection_menu > div > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+#bible_translation_selection_menu > div > *:nth-child(2) {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+#bible_translation_selection_menu > div > input {
+    /* because container size is var(--navigation-height), 
+    so input button is getting bigger too, 
+    this is to make it small while keeping it in center */
+
+    /* width: 1.5rem;
+    height: 1.5rem; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0.5);
+}
+
+.side_menu {
+    position: fixed;
+    top: 0; /* 2024-09-23 - full screen, original=var(--navigation-height); */
+    
+    width: 100dvw; /* always full width to prevent click behind area */
+    height: 100dvh;
+    /* height: calc(100% - var(--navigation-height)); */
+
+    transition: transform 0.5s ease-in-out;        
+    
+    background-color: rgba(256, 256, 256, .5); /* exist but fully transparent (invisible) */
+    color: #000;
+
+    padding: 0;
+
+    z-index: 200; /* higher than tab buttons (Choose, Read, Previous) container */
+}
+
+#left_menu_container {
+    left: 0;
+    transform: translateX(-100%);
+}
+#left_menu_container > div {
+
+    /* padding: 0.5rem; */
+
+    color: black;
+    background-color: white;
+
+    width: 100vw; /*calc(100vw - var(--navigation-height)); */
+    height: 100%;
+}
+#right_menu_container {
+    right: 0;
+    transform: translateX(100%);
+}
+#right_menu_container > div {
+    /* right aligned */
+    position: absolute;
+    right: 0;        
+
+    color: black;
+    background-color: white;
+
+    width: calc(100vw - var(--navigation-height));
+    height: 100%;
+}
+
+#left_menu_container.active {
+    transform: translateX(0);
+}
+#right_menu_container.active {
+    transform: translateX(0);
+}
+
+.btn_menu {
+    display: flex;
+    justify-content: center;  
+    align-items: center;
+
+    font-size: 1.5em; /* scale with body font-size */
+
+    width: var(--navigation-height);
+    height: var(--navigation-height);
+}
+
+.menu_left {
+    display: none;
+}
+.menu_right {
+    display: none;
+}
+
+/*
+div#full_bible_book_name_list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+}
+div.chapter-list {
+    display: grid;            
+    grid-template-columns: repeat(auto-fit, minmax(2.0rem, 3.0rem));
+}
+div.chapter-list > a {
+    display: block;
+    text-align: center;
+    border-bottom: 1px solid #333;
+    border-right: 1px solid #333;
+}
+
+.book-list {
+    border-bottom: 1px solid #333;
+}
+
+details.book-list summary {
+    padding: 0.5rem 5px;
+    list-style: none; 
+    outline: none;
+}
+
+details.book-list[open] summary::after {
+    content: " (\2193)";
+}
+*/
+
+#label-old-testament {
+    text-align: center;
+    padding: 0.5rem 0;
+    color: black;
+    background-color: #02c6ff;
+}
+#label-new-testament {
+    text-align: center;
+    padding: 0.5rem 0;
+    color: black;
+    background-color: #ffa4f8;
+}
+
+/*
+input[type="radio"],
+input[type="checkbox"] {
+    width: 1.0rem;
+    height: 1.0rem;
+}
+*/
+
+#jesoes-website-information {
+    padding: 0 0.5rem;
+    max-height: 100dvh;
+    overflow-y: auto;
+
+    /* extra space to allow scroll to the bottom of the content */
+    padding-bottom: calc(1 * var(--navigation-height)); /* close button height */
+}
+
+/*************************************************************
+*** styles for tabs (choose + read + previously) container ***
+**************************************************************/
+input[type="radio"].tab_radio {
+    display: none;
+}
+#my_radio_button_labels {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background-color: #000;
+
+    width: 100%;
+    height: var(--navigation-height);
+}
+#my_radio_button_labels.sticky {
+    /* this tab container should be sticky on top, higher than everything except LEFT/RIGHT menu */
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+#my_radio_button_labels > label { /* direct children */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    color: white;
+    background-color: #00f;
+    background: linear-gradient(to bottom, #00f, #00a, #006);        
+
+    transition: color 0.5s, background-color 0.5s ease-in-out;
+
+    cursor: pointer;
+}
+#my_radio_button_labels > label:hover {
+    background-color: #66f;
+    background: linear-gradient(to bottom, #33f, #33a, #336);
+}
+/* "tab button" (label) design when CHECKED */
+#tab_radio_1:checked ~ #my_radio_button_labels > label:nth-child(1),
+#tab_radio_2:checked ~ #my_radio_button_labels > label:nth-child(2),
+#tab_radio_3:checked ~ #my_radio_button_labels > label:nth-child(3),
+#tab_radio_4:checked ~ #my_radio_button_labels > label:nth-child(4) {
+    background-color: red;
+    background: linear-gradient(to bottom, #f00, #a00, #600);
+}
+
+#tab_content_container > .tab-content {
+    /* initially hidden
+    NOTE: because of display: none;
+    therefore no transition (opacity, transform: scale(0), visibility) work */
+    /* display: none; */
+
+    /* DO NOT use use position: absolute; because need to adjust height otherwise footer goes up */
+    /*position: absolute; */
+
+    /* hide it without avoid taking space, but changing height make content jumping when switching between tabs */
+    height: 0;
+
+    /* KNOWN problem, switched to other tab, the tab top position may change to follow the other tab:
+    document.getElementById('content-read-book-chapter-verse').getBoundingClientRect().top
+    document.getElementById('content-read-history-list').getBoundingClientRect().top 
+    */
+
+    /* important to remove 'border' and 'margin' because they consume space */
+    border: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+    /* transform: scale(0); */
+    opacity: 1;
+    /* visibility: hidden; */
+    /* transition: opacity 1.0s, visibility 1.0s, transform 1.0s ease-in-out; */
+    transition: opacity 1.5s ease-in-out;
+}
+
+#tab_radio_1:checked ~ #tab_content_container > .tab-content:nth-child(1) {
+    /* Choose tab */
+    /* full screen height minus header, tabs, and footer */        
+    max-height: calc(100dvh - (3 * var(--navigation-height))) !important; /* new browser support dvh */
+}
+
+/* main tab content switching */
+#tab_radio_1:checked ~ #tab_content_container > .tab-content:nth-child(1),
+#tab_radio_2:checked ~ #tab_content_container > .tab-content:nth-child(2),
+#tab_radio_3:checked ~ #tab_content_container > .tab-content:nth-child(3),
+#tab_radio_4:checked ~ #tab_content_container > .tab-content:nth-child(4) {
+    /* make it visible -> from 'none' to 'block' */
+    /* display: block; */
+
+    /* restore */
+    height: auto;
+            
+    /* border: 1px solid #666; */
+    /* padding: 1.0rem; */
+    overflow: auto;
+
+    opacity: 1;
+    /* visibility: visible; */
+}
+
+/* specific for 'read' content */
+#tab_radio_2:checked ~ #tab_content_container > .tab-content:nth-child(2) {
+    /* padding: 0.5rem; */
+}
+
+/********************************************
+*** styles for 'choose' tab content *********
+*********************************************/
+/* #content-choose, */
+#content-choose-list-header,
+#content-choose-list {
+    display: grid;
+    grid-template-columns: auto 5.0em 5.0em; /*3fr 1fr 1fr;*/
+
+    width: 100%;
+    position: relative;
+}
+#content-choose-list-header {
+    height: var(--navigation-height);
+    gap: 1px;
+}
+#content-choose-list-header div {
+    /* text-align: center; */
+    display: flex;
+    justify-content: center; /* center horizontally */
+    align-items: center; /* center vertically */
+    text-align: center; /* if more than 1 line, center horizontally */
+
+    color: white;
+    background-color: #333;
+    /*padding: 0.5rem 0; /* no padding, not enough vertical clerance */
+}
+#content-choose-verse-text-container {
+    display: grid;
+    grid-template-columns: 1fr calc(1.0 * var(--navigation-height));
+    /* height: var(--navigation-height); */
+
+    border-top: 1px solid #666;
+
+    /* quick solution to prevent stuttering if touching this area and scroll up */
+    /* margin-bottom: calc(1.5 * var(--navigation-height));  */
+}
+#content-choose-verse-text {
+    display: inline-block; /* to the left of 'Go' button */
+    /* align-items: center; */
+    /* can not use flex for ellipsis */
+    
+    text-align: left;
+    padding: 2px 5px;
+
+    /* text-overflow: ellipsis; */
+    /* requirement for showing '...' */
+    /* white-space: nowrap; */
+    overflow: hidden;
+    width: calc(100wh - var(--navigation-height)); /* minus 'Go' button width */
+    height: var(--navigation-height);
+    /* show '...' but only on a single line, multilines need heavy CSS (clamp) and JS */
+
+    /* decided to not use ellipsis, just let it natural */
+}
+#content-choose-verse-text em {
+    /* book name + chapter + verse */
+    color: yellow;
+}
+
+#content-choose-list > div { /* only direct descendant */
+    /*
+    To allow vertical scroll, need to have height, set the same height value like its container 
+    This is only an initial height, will be changed by JS later according to content height
+
+    why (4 * var(--navigation-height)) ?
+    1. Header
+    2. Tab Container
+    3. List Header (Book, Chapter, Verse)
+    4. Preview Verse
+    5. Footer
+    */
+    height: calc( 100dvh - (5 * var(--navigation-height))); /* new browser support 100dvh */
+    /* WARNING: change this value may caused stuttering bug in Android every time change bookname */
+
+    overflow-y: auto; /* allow vertical scroll */
+}
+
+#choose-booknames-list-container ul,
+#choose-chapter-number-list-container ul,
+#choose-verse-number-list-container ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#choose-booknames-list-container ul li,
+#choose-chapter-number-list-container ul li,
+#choose-verse-number-list-container ul li {
+    color: white;
+    background-color: black;
+
+    transition: color 0.5s ease-in-out;
+    transition: background-color 0.5s ease-in-out;        
+
+    cursor: pointer;
+    padding: 0.5rem;
+    border: 1px solid #222;
+}
+ul#choose-chapter-number-list li,
+ul#choose-verse-number-list li {
+    text-align: right;
+}
+
+ul#choose-booknames-list li.selected,
+ul#choose-chapter-number-list li.selected,
+ul#choose-verse-number-list li.selected {
+    color: red;
+    background-color: #fff;
+    /* any clickable element/button will use gradient background */
+    background: linear-gradient(to bottom, #fff, #aaa, #666);
+}
+ul#choose-booknames-list li:hover,
+ul#choose-chapter-number-list li:hover,
+ul#choose-verse-number-list li:hover {
+    background-color: #666;
+    /* any clickable element/button will use gradient background */
+    background: linear-gradient(to bottom, #666, #444, #222);
+}
+
+#content-choose-go {
+    color: white;
+    border: none;
+    /* padding: 10px 20px; */
+    margin: 0.3rem;
+    cursor: pointer;
+
+    background-color: #0f0;
+    background: linear-gradient(to bottom, #0f0, #0a0, #060);
+}
+#content-choose-go:hover {
+    background-color: #6f6;
+    /* brigter color */
+    background: linear-gradient(to bottom, #6f6, #6a6, #696);
+}
+/********************************************
+*** end of styles for 'choose' tab content **
+*********************************************/
+
+/********************************************
+*** styles for 'read' tab content ***********
+*********************************************/
+
+#content-read-book-chapter-verse h3 {        
+    margin: 0; /* remove default margin */
+    height: var(--navigation-height);
+
+    /* center */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+details {
+    counter-increment: verse-number-counter;
+    /* margin-bottom: 0.5rem; */
+    padding: 0.3rem 0.5rem; /* do not touch side of screen */
+}
+
+/* remove triangle */
+summary {
+    list-style: none;
+}
+details summary::-webkit-details-marker {        
+    display:none; /* iPhone and iPad need this to remove triangle */
+}
+summary::before {
+    content: counter(verse-number-counter) " ";
+    color: yellow;
+    font-size: 0.8em; /* use 'em' to scale together with body's font-size */
+    font-style: italic;
+}    
+summary span {
+    /* pericope or addition text */
+    color: #fa0;
+    font-style: italic;
+}
+details div {
+    /* extra translation */
+    padding: 0.3rem 0 0 16px;
+    
+    /* border-bottom: 1px solid #333; */
+}
+details div::before {
+    content: '↳';
+    color: red;
+    font-size: 16px; /* fixed size regardless of body font size change */
+    /*position: absolute; /* dont use absolute because in Choose tab will be seen on the bottom */
+    /* left: 3px; */
+}
+
+details.details-verse-highlighted {        
+    background-color: #060;
+    background: linear-gradient(to bottom, #060, #040, #020);
+}
+details div span {
+    /* pericope or addition text */
+    color: #fa0;
+    font-style: italic;
+}
+
+/********************************************
+*** styles for 'previous' tab content *******
+*********************************************/
+
+#content-read-history-list div {
+    padding: 0.5rem;
+
+    border-bottom: 1px solid #666;
+
+    cursor: pointer;
+}
+#content-read-history-list div > span:nth-child(1){
+    /* date time */
+    color: yellow;
+}
+#content-read-history-list div > span:nth-child(2){
+    /* bookname chapter number : verse number */
+    color: red;
+}
+
+/********************************************
+*** styles for 'GDPR' tab content ***********
+*********************************************/
+.gdpr-popup {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    color: white;
+    background-color: rgba(0, 0, 0, 0.8);
+    
+    display: none; /* initially hidden */
+    justify-content: center;
+    align-items: center;
+    
+    z-index: 1000; /* highest of everything else */
+}
+
+/* Show the popup when active */
+.gdpr-popup.active {
+    display: flex;
+}
+
+/* Popup content */
+.gdpr-popup-content {
+    padding: 1.0em;
+    max-width: 90%;
+    
+    text-align: center;
+
+    color: black;
+    background-color: white;
+}
+
+/* Buttons */
+.gdpr-btn {
+    color: white;
+
+    /* any clickable element/button will use gradient background */
+    background-color: #0f0;
+    background: linear-gradient(to bottom, #0f0, #0a0, #060);
+    
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.gdpr-btn:hover {
+    background: linear-gradient(to bottom, #6f6, #6a6, #696);
+}
+/* Decline button */
+button#gdpr-decline {
+    background-color: #f00;
+    background: linear-gradient(to bottom, #f00, #a00, #600);
+}
+
+#gdpr-decline:hover {
+    background-color: #f33;
+    background: linear-gradient(to bottom, #f33, #a33, #633);
+}
+
+/*************************************************************
+*** styles for popup for 'welcome and agreement' content *****
+*************************************************************/
+#popup-welcome-and-agreement {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    color: white;
+    background-color: rgba(0, 0, 0, 0.8);
+    
+    display: none; /* initially hidden */
+    justify-content: center;
+    align-items: center;
+    
+    z-index: 1000; /* highest of everything else */
+}
+/* Show the popup when active */
+#popup-welcome-and-agreement.active {
+    display: flex;
+}
+
+/* Popup content */
+#welcome-and-agreement-content {
+    padding: 1.0em;
+    max-width: 90%;
+    
+    text-align: center;
+
+    color: black;
+    background-color: white;
+}
+
+/* Buttons */
+.agreement-btn {
+    color: white;
+
+    /* any clickable element/button will use gradient background */
+    background-color: #0f0;
+    background: linear-gradient(to bottom, #0f0, #0a0, #060);
+    
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+button.agreement-btn:hover {
+    background: linear-gradient(to bottom, #6f6, #6a6, #696);
+}
+/* Decline button */
+button#info-show-again {
+    background-color: #f00;
+    background: linear-gradient(to bottom, #f00, #a00, #600);
+}
+
+button#info-show-again:hover {
+    background-color: #f33;
+    background: linear-gradient(to bottom, #f33, #a33, #633);
+}
