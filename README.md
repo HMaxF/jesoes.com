@@ -5,4 +5,4 @@ Static website for JESOES.com
 Offline Christian Bible reader.
 
 # How to access
-https://hmaxf.github.io/jesoes.com/www
+Link: [https://hmaxf.github.io/jesoes.com/www]
