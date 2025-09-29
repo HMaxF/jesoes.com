@@ -1,3 +1,10 @@
+/**
+History
+
+2025-09-29:
+- add style ==> #choose-booknames-list li.label 
+
+*/
 html {
     box-sizing: border-box;
 }
@@ -508,6 +515,14 @@ ul#choose-verse-number-list li:hover {
     background-color: #666;
     /* any clickable element/button will use gradient background */
     background: linear-gradient(to bottom, #666, #444, #222);
+}
+
+#choose-booknames-list li.label {
+    font-weight: bold;
+    color: #666;
+    cursor: default;
+    pointer-events: none; /* disable click */
+    background-color: #eee;
 }
 
 #content-choose-go {

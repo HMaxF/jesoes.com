@@ -16,6 +16,9 @@
  * 3. onExtraBibleChanged: set ordering by putting data-order="1", "2", "3", etc.
  * 
  * History:
+ * 2025-09-29:
+ * - Add "New Testament" and "Old Testament" in Choose tab, see refreshBookNameList()
+ * 
  * 2024-09-29:
  * - Match new pattern of text inside [text] or {text}
  * 
