@@ -423,6 +423,13 @@ function refreshBooknameList(selectedBookNumber) {
     const totalBook = jesoesOBFManager.mainBibleContent.books.length;
     for(let i = 0; i < totalBook; i++) {
         // TODO: how to add label 'New Testament' and 'Old Testament' if using <li>?
+
+        // 2025-09-29: add New Testament and Old Testament
+        if(i == 0) {
+            html += `<li class="label" data-disabled="true" id="li-label-new-testament">* New Testament *</li>`;
+        } else if(i == 39) {
+            html += `<li class="label" data-disabled="true" id="li-label-old-testament">* Old Testament *</li>`;
+        }
         html += `<li data-id="${i + 1}">${jesoesOBFManager.mainBibleContent.books[i].name}</li>`;
     }    
     document.querySelector('#choose-booknames-list').innerHTML = html;
@@ -430,6 +437,8 @@ function refreshBooknameList(selectedBookNumber) {
     document.querySelectorAll('ul#choose-booknames-list li').forEach((item) => {
         item.addEventListener('click', (event) => {
             const thisItem = event.target;
+
+            if (thisItem.classList.contains('label')) return; // 🚫 skip labels "New Testament" and "Old Testament"
 
             // remove 'selected' if not the same item
             const selectedItem = thisItem.parentElement.querySelector('li.selected');
