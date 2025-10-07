@@ -522,7 +522,9 @@ ul#choose-verse-number-list li:hover {
     color: #666;
     cursor: default;
     pointer-events: none; /* disable click */
-    background-color: #eee;
+    
+    background-color: #666;
+    text-shadow: #000 0 0 10px;
 }
 
 #content-choose-go {

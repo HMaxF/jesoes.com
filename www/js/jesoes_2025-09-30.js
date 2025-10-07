@@ -427,11 +427,12 @@ function refreshBooknameList(selectedBookNumber) {
     for(let i = 0; i < totalBook; i++) {
         // TODO: how to add label 'New Testament' and 'Old Testament' if using <li>?
 
-        // 2025-09-29: add New Testament and Old Testament
+        // 2025-09-29: add Old Testament and New Testament
+        // 2025-10-07: instead of using text, use emoji ⛰️ 📜 (old testament) ✝️ 🕊️ (new testament)
         if(i == 0) {
-            html += `<li class="label" data-disabled="true" id="li-label-new-testament">* New Testament *</li>`;
+            html += `<li class="label" data-disabled="true" id="li-label-new-testament">📜 ⛰️</li>`;
         } else if(i == 39) {
-            html += `<li class="label" data-disabled="true" id="li-label-old-testament">* Old Testament *</li>`;
+            html += `<li class="label" data-disabled="true" id="li-label-old-testament">✝️ 🕊️</li>`;
         }
         html += `<li data-id="${i + 1}">${jesoesOBFManager.mainBibleContent.books[i].name}</li>`;
     }    
