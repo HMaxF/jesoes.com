@@ -236,8 +236,8 @@ class JesoesOBFManager {
         
         // download it
         this.download_JSON(bible_list_JSON_url, async (data) => {
-            log(`downloadBibleList(callback), result:`);
-            log(JSON.stringify(data, null, 2));
+            //log(`downloadBibleList(callback), result:`);
+            //log(JSON.stringify(data, null, 2));
 
             this.bible_list = data;
             
