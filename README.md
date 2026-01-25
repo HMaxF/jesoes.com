@@ -23,5 +23,9 @@ Offline Christian Bible reader.
         - Content-type: from `application/gzip` to `application/json`
         - Content-encoding: from `json` to `gzip`
         - NOTE: this will make it download automatically as JSON (not compressed binary)
+      
+
+# Studies
+- [What is the "will of GOD?"](https://hmaxf.github.io/jesoes.com/studies/what-is-the-will-of-god.html)
 
 
